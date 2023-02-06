@@ -1,0 +1,29 @@
+  /* Posts list */
+  .postlist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--margin);
+    list-style: none;
+    padding: 0;
+  }
+
+  .postlist-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postlist-item__img {
+    border-radius: 0.5rem;
+    height: auto;
+  }
+
+  @media screen and (max-width: 769px) {
+    .blog-page-content__article {
+      padding: 1rem;
+      padding-top: 0;
+    }
+
+    .postlist {
+      grid-template-columns: 1fr;
+    }
+  }

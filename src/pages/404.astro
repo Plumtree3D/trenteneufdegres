@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Page.astro";
+import Container from "../components/Container.astro";
+
+const seo = {
+  title: "Cette page n'existe pas !",
+};
+---
+
+<Layout seo={seo}>
+  <Container>
+    <div class="notFoundCard shadow">
+      <h1>404</h1>
+      <p>
+        Mince ! Cette page n'existe pas ou a été déplacée ! <br /> Vous pouvez toujours
+        <a href="/">retourner à l'accueil.</a>
+      </p>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .notFoundCard {
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 4rem;
+    color: var(--color-purple);
+  }
+</style>

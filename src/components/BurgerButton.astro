@@ -1,0 +1,14 @@
+---
+---
+
+<label role="button" id="menu-label">
+    <input id="menu-toggle" type="checkbox" />
+    <div class="burger-toggle"></div>
+</label>
+
+<script>
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+        document.querySelector(".navbars").classList.toggle("expanded");
+        // document.querySelector("body").classList.toggle("overflow-hidden");
+    });
+</script>

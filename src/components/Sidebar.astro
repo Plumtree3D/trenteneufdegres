@@ -1,0 +1,35 @@
+---
+import { getAllCategories, getAllLocations } from "../lib/api.js";
+import Medias from "./Medias.astro";
+const allCategoriesData = await getAllCategories();
+const allLocationsData = await getAllLocations();
+---
+
+<nav class="sidenav">
+    <h2>THÉMATIQUES</h2>
+    <ul class="navbarItems">
+        {
+            allCategoriesData.map((category) => (
+                <li class="row button">
+                    <a href={`/thematique/${category.slug.current}`}>
+                        {category.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+    <h2>INFOS LOCALES</h2>
+    <ul class="navbarItems">
+        {
+            allLocationsData.map((location) => (
+                <li class="row button">
+                    <a href={`/local/${location.slug.current}`}>
+                        {location.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+    <h2>RESTEZ INFORMÉS</h2>
+    <Medias />
+</nav>

@@ -1,0 +1,42 @@
+---
+// Component Imports
+import Layout from "../layouts/Page.astro";
+import BlogPostPreview from "../components/BlogPostPreview.astro";
+
+import { getAllFormatsWithPosts } from "../lib/api.js";
+import SectionEmpty from "../components/SectionEmpty.astro";
+
+export async function getStaticPaths() {
+  const allFormatData = await getAllFormatsWithPosts();
+
+  return allFormatData.map((format) => ({
+    params: { slug: format.slug.current },
+    props: { format },
+  }));
+}
+
+const { format } = Astro.props;
+
+const seo = {
+  title: format.title,
+};
+---
+
+<Layout seo={seo}>
+  <h1>{format.title}</h1>
+  <section class="postlist">
+    {
+      () => {
+        if (!format.posts[0]) {
+          return (
+            <>
+              <SectionEmpty />
+            </>
+          );
+        } else {
+          return format.posts.map((post) => <BlogPostPreview post={post} />);
+        }
+      }
+    }
+  </section>
+</Layout>

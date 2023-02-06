@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'acumin_black';
+    src: url('/fonts/acumin_pro_semicond_black-webfont.woff2') format('woff2'),
+         url('/fonts/acumin_pro_semicond_black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'acumin_bold';
+    src: url('/fonts/acumin_pro_semicond_bold-webfont.woff2') format('woff2'),
+         url('/fonts/acumin_pro_semicond_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'acumin_book';
+    src: url('/fonts/acumin_pro_book-webfont.woff2') format('woff2'),
+         url('/fonts/acumin_pro_book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'yrsaitalic';
+    src: url('/fonts/yrsa-italic-variablefont_wght-webfont.woff2') format('woff2'),
+         url('/fonts/yrsa-italic-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'yrsa';
+    src: url('/fonts/yrsa-variablefont_wght-webfont.woff2') format('woff2'),
+         url('/fonts/yrsa-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

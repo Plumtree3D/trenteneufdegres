@@ -1,0 +1,83 @@
+---
+import { getAllFormats } from "../lib/api.js";
+import Dropdown from "./Dropdown.astro";
+import BurgerButton from "./burgerButton.astro";
+import Sidebar from "./Sidebar.astro";
+// const allLocationsData = await getAllLocations();
+const allFormatsData = await getAllFormats();
+---
+
+<nav class="header">
+    <div class="headerRow shadow">
+        <a href="/">
+            <img
+                class="logo"
+                id="logo"
+                src="../../assets/trente_neuf_degres_logo.png"
+                alt="Le média pupulaire, écologique et social du Jura"
+            />
+        </a>
+        <a href="#content" class="skip"> Sauter la navigation</a>
+        <BurgerButton />
+    </div>
+
+    <div class="navbars">
+        <ul class="upperBar navbarItems">
+            {
+                allFormatsData.map((format) => (
+                    <li class="row button">
+                        <a href={`/${format.slug.current}`}>{format.title}</a>
+                    </li>
+                ))
+            }
+            <li class="row button"><a href="/a-propos"> à propos</a></li>
+        </ul>
+        <Sidebar />
+    </div>
+</nav>
+
+<style>
+    p {
+        text-align: end;
+        font-family: var(--quote-font);
+        font-size: 0.6rem;
+        letter-spacing: -1px;
+    }
+
+    .skip {
+        text-transform: uppercase;
+        font-family: var(--subtitle-font);
+        text-decoration: none;
+        color: var(--font-black);
+        padding: 4px 15px;
+        transition: 0.2s;
+        transform: translateY(-200px);
+    }
+
+    .skip:focus {
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (
+            document.body.scrollTop > 80 ||
+            document.documentElement.scrollTop > 80
+        ) {
+            document.documentElement.style.setProperty(
+                "--header-height",
+                "58px"
+            );
+        } else {
+            document.documentElement.style.setProperty(
+                "--header-height",
+                "72px"
+            );
+        }
+    }
+</script>

@@ -1,0 +1,44 @@
+---
+// Component Imports
+import Layout from "../../layouts/Page.astro";
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+import SectionEmpty from "../../components/SectionEmpty.astro";
+
+import { getAllLocationsWithPosts } from "../../lib/api.js";
+
+export async function getStaticPaths() {
+    const allLocationData = await getAllLocationsWithPosts();
+
+    return allLocationData.map((location) => ({
+        params: { slug: location.slug.current },
+        props: { location },
+    }));
+}
+
+const { location } = Astro.props;
+
+const seo = {
+    title: location.title,
+};
+---
+
+<Layout seo={seo}>
+    <h1>{location.title}</h1>
+    <section class="postlist">
+        {
+            () => {
+                if (!location.posts[0]) {
+                    return (
+                        <>
+                            <SectionEmpty />
+                        </>
+                    );
+                } else {
+                    return location.posts.map((post) => (
+                        <BlogPostPreview post={post} />
+                    ));
+                }
+            }
+        }
+    </section>
+</Layout>

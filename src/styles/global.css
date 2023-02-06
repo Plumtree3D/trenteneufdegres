@@ -1,0 +1,358 @@
+@import url('./reset.css');
+@import url('./fonts.css');
+@import url('./burgerToggle.css');
+@import url('./postlist.css');
+
+::selection {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  transition: 0.2s;
+  background: var(--color-purple); 
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  outline: solid 3px var(--color-purple);
+}
+
+:root {
+  --container-max-width: 1200px;
+	--container-max-width-narrow: 960px;
+	--container-padding: 0 1rem;
+  /* FONTS */
+  --title-font: 'acumin_black';
+  --subtitle-font: 'acumin_bold';
+  --body-italic: 'yrsaitalic';
+  --body-regular: 'yrsa';
+  --quote-font: 'acumin_bold';
+  /* COLORS */
+  --color-black: #1A1A1A;
+  --color-white: #fff;
+  --color-red: #D6412F;
+  --color-purple: #5e257b;
+  --color-gray: #8e8e8e;
+  --color-light: #f3f3f3;
+  ;
+  /* MISC */
+  --shadow: rgba(0, 0, 0, 0.216) 2px 2px 2px;
+  --margin: 12px;
+  --header-height: 72px;
+  --sidebar-width: 232px;
+
+}
+
+html,
+body {
+  margin: auto;
+  padding: 0;
+  background: var(--color-light);
+  color: var(--color-black);
+  font-family: var(--body-regular);
+  font-size: 17px;
+  max-width: 1200px;
+  position: relative;
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+main {
+  min-height: calc(100vh);
+  margin-top: calc(var(--header-height) + var(--margin));
+}
+
+h1 {
+  font-family: var(--title-font);
+  text-transform: uppercase;
+}
+
+h2, h3 {
+  font-family: var(--subtitle-font);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.logo {
+  height: 100%;
+  max-width: 96px;
+  transition: 0.2s;
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--margin);
+  height: var(--header-height);
+}
+
+.altText {
+  color: var(--color-gray);
+  font-family: var(--quote-font);
+}
+
+.ariane, .ariane a {
+  margin-bottom: 0;
+  font-family: var(--subtitle-font);
+  color: var(--color-red);
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.ariane a:hover, .ariane a:focus {
+  text-decoration: underline;
+}
+
+blockquote {
+  color: var(--color-red);
+  font-size: 1.1rem;
+  position: relative;
+  font-family: var(--quote-font);
+  padding: 26px 0;
+
+}
+
+blockquote:before {
+  content: "";
+  display: block;
+  max-width: 360px;
+  width: 60%;
+  height: 3px;
+  background: var(--color-red);
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+blockquote:after {
+  content: "";
+  display: block;
+  max-width: 360px;
+  width: 60%;
+  height: 3px;
+  background:var(--color-red);
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.header {
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: var(--margin);
+  background-color: var(--color-white);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.sidenav h2 {
+  padding: var(--margin);
+  padding-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.navbarItems {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+
+.navbars {
+  min-height: 100vh;
+  overflow: scroll;
+  height: 100%;
+  background-color: var(--color-white);
+  width: 100%;
+  position: absolute;
+  left: -100%;
+  z-index: 0;
+  transition: 0.2s;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  text-transform: uppercase;
+  color: var(--font-black);
+  font-family: var(--subtitle-font);
+  text-align: start;
+  width: 100%;
+  border-bottom: 1px solid #00000018;
+}
+
+.button a {
+  background-color: #ffffff;
+  text-decoration: none;
+  color: var(--font-black);
+  padding: 4px 15px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.button a:hover,
+.button a:focus {
+  background-color: #ececec;
+  padding-left: 25px;
+}
+
+time {
+  color: var(--color-gray)
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light);
+  border-radius: 15px;
+  padding: 0 var(--margin);
+  align-items: center;
+}
+
+.authorImg {
+  background-color: white;
+  outline: 8px solid var(--color-light);
+  border-radius: 50%;
+}
+
+.expanded {
+  left: 0;
+}
+
+.post-content__article {
+  padding: 1rem;
+  background-color: var(--color-white);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  
+  .card {
+    width: 50%;
+  }
+
+  #menu-label {
+    display: none;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: row;
+    max-width: var(--container-max-width);
+    height: var(--header-height);
+    margin-bottom: var(--margin);
+    background-color: white;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    transition: height 0.2s;
+  }
+
+  .headerRow {
+    box-shadow: none;
+  }
+  
+  .upperBar {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbars {
+    overflow: visible;
+    display: flex;
+    min-height: auto;
+    background-color: var(--color-white);
+    width: auto;
+    left: auto;
+    position: relative;
+    z-index: 0;
+    transition: 0.2s;
+    padding: 0 var(--margin);
+  }
+  
+  .sidenav {
+    width: 232px;
+    position: absolute;
+    margin-top: calc(var(--margin) + var(--header-height));
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: var(--color-white);
+    overflow-x: hidden;
+    box-shadow: var(--shadow);
+  }
+  .upperBar .button {
+    width: auto;
+    height: 100%;
+    align-items: center;
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  .upperBar .button a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .upperBar .button a:hover,
+  .upperBar .button a:focus {
+    background-color: #ececec;
+    padding-bottom: 18px;
+    padding-left: 15px;
+  }
+
+  main {
+    margin-right: calc(var(--sidebar-width) + var(--margin));
+
+  }
+}
+
+@media print {
+  header {
+      display: none !important;
+  }
+  footer {
+      display: none !important;
+  }
+  main {
+      margin: 0 !important;
+  }
+  html {
+      background: white !important;
+  }
+}

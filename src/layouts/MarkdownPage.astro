@@ -1,0 +1,16 @@
+---
+import Layout from "./Base.astro";
+import type { Props as BaseHeadProps } from "../components/BaseHead.astro";
+
+export interface Props {
+  seo?: BaseHeadProps;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout seo={frontmatter}>
+  <article class="shadow post-content__article">
+    <slot />
+  </article>
+</Layout>
