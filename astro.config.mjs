@@ -8,7 +8,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: 'https://trenteneufdegres.fr/',
   integrations: [sitemap(), sanity({
-    projectId: PUBLIC_SANITY_PROJECT_ID,
+    projectId: 'riqlsv0h',
     dataset: 'production',
     apiVersion: 'v2021-03-25',
     useCdn: true
