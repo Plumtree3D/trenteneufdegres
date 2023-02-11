@@ -41,11 +41,19 @@ const seo = {
         {
           post.categoryData && (
             <>
-              {post.categoryData.map((category) => (
-                <a href={`/thematique/${category.slug.current}`}>
-                  {category.title}
-                </a>
-              ))}
+              <a href={`/thematique/${post.categoryData[0].slug.current}`}>
+                {post.categoryData[0].title}
+              </a>
+            </>
+          )
+        }
+        {
+          post.categoryData[1] && (
+            <>
+              &{" "}
+              <a href={`/thematique/${post.categoryData[1].slug.current}`}>
+                {post.categoryData[1].title}
+              </a>
             </>
           )
         }
@@ -53,9 +61,19 @@ const seo = {
         {
           post.locationData && (
             <>
-              {post.locationData.map((location) => (
-                <a href={`/local/${location.slug.current}`}>{location.title}</a>
-              ))}
+              <a href={`/local/${post.locationData[0].slug.current}`}>
+                {post.locationData[0].title}
+              </a>
+            </>
+          )
+        }
+        {
+          post.locationData[1] && (
+            <>
+              &{" "}
+              <a href={`/local/${post.locationData[1].slug.current}`}>
+                {post.locationData[1].title}
+              </a>
             </>
           )
         }
