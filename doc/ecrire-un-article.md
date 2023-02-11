@@ -94,9 +94,16 @@ Permet d'intégrer un bloc de code dans le corps du texte. Vous n'aurez probable
 
 Il n'est pas encore possible d'intégrer un tweet ou une publication instagram dans le cors du texte. Ça devrait être le cas dans une [prochaine mise à jour](https://github.com/Plumtree3D/trenteneufdegres/issues/10).
 
+### Publication  
 
+Le bouton `Publish` et la flèche à sa droite permettent d'effectuer 5 actions: 
+* **Publish**: Publiera l'article sur trenteneufdegres.fr, il peut mettre jusqu'à 3 minutes avant d'apparaitre sur le site. 
+* **Discard changes**: Retablira l'article dans l'état de sa dernière sauvegarde (voir *versionning*).
+* **Unpublish**: Dépubliera l'article. Il sera toujours présent dans le CMS mais ne sera pas accessible publiquement. 
+* **Duplicate**: Créera un nouvel article avec le même contenu.
+* **Delete**: Supprimera définitivement l'article. Avant de supprimer un article, assurez vous que vous ne vouliez pas plutôt le *dépublier*.
 
+### Versionning  
 
-
-
-
+Lorsque vous apportez des modifications à un article, elles seront sauvegardée automatiquement dans le CMS. En revanche elles ne seront pas publiées sur trenteneufdegres.fr tant que vous n'aurez pas appuyé sur `Publish`. Vous pouvez donc commencer à rédiger un article et vous arrêter sereinement pour le continuer plus tard.  
+Le bouton `Current version` en haut à droite permet de consulter l'historique de l'article. Vous saurez qui a apporté quelles modification et quand. Vous pouvez également retourner à une version antérieure de l'article en cliquant sur cette dernière. 
