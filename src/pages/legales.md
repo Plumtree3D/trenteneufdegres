@@ -18,5 +18,7 @@ Ce site est un fork de [ce projet Github](https://github.com/littlesticks/astro-
 **Charte & logo:** Charlotte Guichon  
 **Icones:** Facebook, Twitter, Telegram & RSS feed fournies par [Font Awesome](https://fontawesome.com/)  
 
-## Nous contacter
-**Par email:** redaction@trenteneufdegres.fr
+
+## La citation ou la reproduction des articles 
+
+Il n’y a pas de plus grand plaisir, pour quelqu’un qui produit des idées ou des analyses, de les voir se diffuser. Si vous souhaitez reproduire un extrait ou même un article entier de *Trente-neuf degrés*, ce sera avec grand plaisir. Cependant, Nous vous demanderons d’indiquer la source, avec si possible un lien hypertexte renvoyant vers notre site. 
