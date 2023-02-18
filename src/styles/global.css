@@ -31,7 +31,7 @@
 }
 
 :root {
-  --container-max-width: 1200px;
+  --container-max-width: 1360px;
 	--container-max-width-narrow: 960px;
 	--container-padding: 0 1rem;
   /* FONTS */
@@ -64,7 +64,7 @@ body {
   color: var(--color-black);
   font-family: var(--body-regular);
   font-size: 17px;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   position: relative;
 }
 
@@ -181,7 +181,7 @@ blockquote:after {
 
 .navbars {
   min-height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100%;
   background-color: var(--color-white);
   width: 100%;
@@ -189,6 +189,7 @@ blockquote:after {
   left: -100%;
   z-index: 0;
   transition: 0.2s;
+  padding-bottom: 160px;
 }
 
 .row {
