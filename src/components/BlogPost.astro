@@ -86,6 +86,21 @@ const { post } = Astro.props;
     position: relative;
   }
 
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light);
+    border-radius: 15px;
+    padding: 0 var(--margin);
+    align-items: center;
+  }
+
+  .authorImg {
+    background-color: white;
+    outline: 8px solid var(--color-light);
+    border-radius: 50%;
+  }
+
   .authorCardImage {
     object-fit: cover;
     background-color: white;

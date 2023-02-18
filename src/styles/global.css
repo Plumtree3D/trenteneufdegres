@@ -1,7 +1,7 @@
 @import url('./reset.css');
 @import url('./fonts.css');
-@import url('./burgerToggle.css');
 @import url('./postlist.css');
+@import url('./print.css');
 
 ::selection {
   background-color: var(--color-purple);
@@ -98,14 +98,6 @@ p {
   transition: 0.2s;
 }
 
-.headerRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: var(--margin);
-  height: var(--header-height);
-}
-
 .altText {
   color: var(--color-gray);
   font-family: var(--quote-font);
@@ -143,6 +135,7 @@ blockquote:before {
   top: 0;
   position: absolute;
 }
+
 blockquote:after {
   content: "";
   display: block;
@@ -153,22 +146,6 @@ blockquote:after {
   right: 0;
   bottom: 0;
   position: absolute;
-}
-
-.header {
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: var(--margin);
-  background-color: var(--color-white);
-  position: fixed;
-  top: 0;
-  z-index: 2;
-}
-
-.sidenav h2 {
-  padding: var(--margin);
-  padding-bottom: 0;
-  font-size: 1.2rem;
 }
 
 .navbarItems {
@@ -228,21 +205,6 @@ blockquote:after {
 
 time {
   color: var(--color-gray)
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-light);
-  border-radius: 15px;
-  padding: 0 var(--margin);
-  align-items: center;
-}
-
-.authorImg {
-  background-color: white;
-  outline: 8px solid var(--color-light);
-  border-radius: 50%;
 }
 
 .expanded {
@@ -343,17 +305,3 @@ time {
   }
 }
 
-@media print {
-  header {
-      display: none !important;
-  }
-  footer {
-      display: none !important;
-  }
-  main {
-      margin: 0 !important;
-  }
-  html {
-      background: white !important;
-  }
-}
