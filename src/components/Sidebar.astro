@@ -22,11 +22,13 @@ const allLocationsData = await getAllLocations();
     <ul class="navbarItems">
         {
             allLocationsData.map((location) => (
-                <li class="row button">
-                    <a href={`/local/${location.slug.current}`}>
-                        {location.title}
-                    </a>
-                </li>
+                <>
+                    <li class="row button">
+                        <a href={`/local/${location.slug.current}`}>
+                            {location.title}
+                        </a>
+                    </li>
+                </>
             ))
         }
     </ul>

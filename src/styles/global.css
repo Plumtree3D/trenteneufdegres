@@ -181,7 +181,7 @@ blockquote:after {
 
 .navbars {
   min-height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100%;
   background-color: var(--color-white);
   width: 100%;
@@ -189,6 +189,7 @@ blockquote:after {
   left: -100%;
   z-index: 0;
   transition: 0.2s;
+  padding-bottom: 160px;
 }
 
 .row {
