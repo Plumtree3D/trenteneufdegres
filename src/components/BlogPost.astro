@@ -18,12 +18,19 @@ const { post } = Astro.props;
   {
     post.mainImage ? (
       <img
-        width="720"
-        height="420"
         class="post-main__img"
-        loading="lazy"
         alt={post.alt}
-        src={getSanityImageURL(post.mainImage).url()}
+        srcset={
+            `${getSanityImageURL(post.mainImage).url().includes("?")
+              ? getSanityImageURL(post.mainImage).url() + "&w=460"
+              : getSanityImageURL(post.mainImage).url() + "?w=460"} 460w,
+            ${getSanityImageURL(post.mainImage).url().includes("?")
+              ? getSanityImageURL(post.mainImage).url() + "&w=980"
+              : getSanityImageURL(post.mainImage).url() + "?w=980"} 980w
+              `
+          }
+        sizes="(max-width: 600px) 460w,
+            980w"
       />
     ) : <> </>
   }

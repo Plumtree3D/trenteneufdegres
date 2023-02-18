@@ -15,7 +15,11 @@ const { post } = Astro.props;
         <img
           class="post-main__img"
           loading="lazy"
-          src={getSanityImageURL(post.mainImage).url()}
+          src={
+            getSanityImageURL(post.mainImage).url().includes("?")
+              ? getSanityImageURL(post.mainImage).url() + "&w=600"
+              : getSanityImageURL(post.mainImage).url() + "?w=600"
+          }
           alt={post.alt}
         />
       )
