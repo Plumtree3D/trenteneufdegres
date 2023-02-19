@@ -226,6 +226,16 @@ time {
   margin: var(--margin);
 }
 
+.header {
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: var(--margin);
+  background-color: var(--color-white);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
 @media only screen and (min-width: 768px) {
   
   .card {
