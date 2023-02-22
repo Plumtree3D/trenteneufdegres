@@ -33,15 +33,14 @@ const { post, idx } = Astro.props;
     }
     <div class="cardMain">
       <h2>
-        {
-          post.locationData && (
-            <>
-              <>
-                <span class="ariane">{post.locationData[0].title}</span> -{" "}
-              </>
-            </>
-          )
-        }
+        <span class="ariane"
+          >{
+            post.formatData.slug.current === "breves" ||
+            post.formatData.slug.current === "tribune"
+              ? post.formatData.title
+              : post.locationData[0].title
+          }</span
+        > -{" "}
         {post.title}
       </h2>
 

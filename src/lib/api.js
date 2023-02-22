@@ -6,7 +6,7 @@ export async function getAllPosts() {
     "categoryData": categories[]->
       {slug, title}, 
     "formatData": format->
-      {slug}, 
+      {slug, title}, 
     "locationData": location[]->
       {slug, title}, 
     "authorData": author->
