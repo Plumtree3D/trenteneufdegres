@@ -18,6 +18,8 @@ Ce site est un fork de [ce projet Github](https://github.com/littlesticks/astro-
 **Charte & logo:** Charlotte Guichon  
 **Icones:** Facebook, Twitter, Telegram & RSS feed fournies par [Font Awesome](https://fontawesome.com/)  
 
+## Contact 
+Pour rentrer en contact avec la rédaction, vous pouvez envoyer un e-mail à l'adresse trenteneufdegres@gmail.com
 
 ## La citation ou la reproduction des articles 
 
