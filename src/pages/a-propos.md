@@ -22,7 +22,7 @@ Trente-neuf degrés se donne comme ambition de répondre à ce besoin, en créan
 
 ## Notre Site internet 
 
-Le site [trenteneufdegrés.fr](https://trenteneufdegrés.fr) est un site statique construit sur *les normes d'écoconception* pour un internet propre. 🌱  
+Le site [trenteneufdegres.fr](https://trenteneufdegres.fr) est un site statique construit sur *les normes d'écoconception* pour un internet propre. 🌱  
 L'objectif à terme est de servir une plateforme *inclusive et accessible à toutes et tous*. 
 
 ## Pourquoi Trente-neuf Degrés ?
