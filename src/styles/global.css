@@ -79,6 +79,7 @@ main {
 h1 {
   font-family: var(--title-font);
   text-transform: uppercase;
+  color: var(--color-purple);
 }
 
 h2, h3 {
