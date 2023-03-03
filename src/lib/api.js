@@ -57,13 +57,13 @@ export async function getAllCategories() {
 }
 
 export async function getAllLocations() {
-  const query = `*[_type == 'location']`;
+  const query = `*[_type == 'location'] | order(order asc)`;
   const data = await useSanityClient().fetch(query);
   return data;
 }
 
 export async function getAllFormats() {
-  const query = `*[_type == 'format']`;
+  const query = `*[_type == 'format'] | order(order asc)`;
   const data = await useSanityClient().fetch(query);
   return data;
 }

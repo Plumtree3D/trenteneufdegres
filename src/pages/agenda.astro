@@ -3,6 +3,7 @@ import Layout from "../layouts/Page.astro";
 import { getAllEvents } from "../lib/api.js";
 import Container from "../components/Container.astro";
 import EventCard from "../components/EventCard.astro";
+import SectionEmpty from "../components/SectionEmpty.astro";
 
 const seo = {
     title: "Agenda",
@@ -15,9 +16,19 @@ const allPostDates = await getAllEvents();
         <article class="blog-page-content__article">
             <section class="FrontpagePostlist">
                 {
-                    allPostDates.map((event, idx) => {
-                        return <EventCard idx={idx} event={event} />;
-                    })
+                    () => {
+                        if (!allPostDates[0]) {
+                            return (
+                                <>
+                                    <SectionEmpty />
+                                </>
+                            );
+                        } else {
+                            return allPostDates.map((event, idx) => (
+                                <EventCard idx={idx} event={event} />
+                            ));
+                        }
+                    }
                 }
             </section>
         </article>

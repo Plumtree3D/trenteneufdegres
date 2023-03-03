@@ -4,13 +4,6 @@ import Medias from "./Medias.astro";
 const allCategoriesData = await getAllCategories();
 const allLocationsData = await getAllLocations();
 const nextEvent = await getNextEvent();
-let date = new Date(nextEvent.eventDate);
-let eventDate = {
-    month: date.toLocaleString("default", { month: "short" }),
-    day: date.toLocaleString("default", { day: "numeric" }),
-    hour: date.toLocaleString("default", { hour: "numeric" }),
-    minute: date.toLocaleString("default", { minute: "numeric" }),
-};
 ---
 
 <nav class="sidenav">
@@ -48,8 +41,19 @@ let eventDate = {
                     <li class="event">
                         <div class="row">
                             <time class="calendar shadow">
-                                {eventDate.month}
-                                <b>{eventDate.day}</b>
+                                {new Date(nextEvent.eventDate).toLocaleString(
+                                    "default",
+                                    {
+                                        month: "short",
+                                    }
+                                )}
+                                <b>
+                                    {new Date(
+                                        nextEvent.eventDate
+                                    ).toLocaleString("default", {
+                                        day: "numeric",
+                                    })}
+                                </b>
                             </time>
                             <p>{nextEvent.title}</p>
                         </div>
