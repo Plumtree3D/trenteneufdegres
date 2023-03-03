@@ -9,7 +9,17 @@ export function formatBlogPostDate(date) {
   const formattedDateString = format(dateString, 'PPP', {locale:fr});
   return `${formattedDateString}`;
 }
+export function formatEventDate(date) {
+  const dateString = parseISO(date, 'YYYY/MM/Do');
+  const formattedDateString = format(dateString, 'PPPp', {locale:fr});
+  return `${formattedDateString}`;
+}
 
+export function formatLongEventDate(date) {
+  const dateString = parseISO(date, 'YYYY/MM/Do');
+  const formattedDateString = format(dateString, 'PPP', {locale:fr});
+  return `${formattedDateString}`;
+}
 export function getSanityImageURL(source) {
   return builder.image(source);
 }

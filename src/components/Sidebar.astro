@@ -1,8 +1,16 @@
 ---
-import { getAllCategories, getAllLocations } from "../lib/api.js";
+import { getAllCategories, getAllLocations, getNextEvent } from "../lib/api.js";
 import Medias from "./Medias.astro";
 const allCategoriesData = await getAllCategories();
 const allLocationsData = await getAllLocations();
+const nextEvent = await getNextEvent();
+let date = new Date(nextEvent.eventDate);
+let eventDate = {
+    month: date.toLocaleString("default", { month: "short" }),
+    day: date.toLocaleString("default", { day: "numeric" }),
+    hour: date.toLocaleString("default", { hour: "numeric" }),
+    minute: date.toLocaleString("default", { minute: "numeric" }),
+};
 ---
 
 <nav class="sidenav">
@@ -32,6 +40,28 @@ const allLocationsData = await getAllLocations();
             ))
         }
     </ul>
+    {
+        nextEvent && (
+            <>
+                <h2>AGENDA</h2>
+                <ul class="navbarItems">
+                    <li class="event">
+                        <div class="row">
+                            <time class="calendar shadow">
+                                {eventDate.month}
+                                <b>{eventDate.day}</b>
+                            </time>
+                            <p>{nextEvent.title}</p>
+                        </div>
+                    </li>
+                    <li class="row button">
+                        <a href="/agenda">Voir toutes les dates</a>
+                    </li>
+                </ul>
+            </>
+        )
+    }
+
     <h2>RESTEZ INFORMÉS</h2>
     <Medias />
 </nav>
@@ -41,5 +71,44 @@ const allLocationsData = await getAllLocations();
         padding: var(--margin);
         padding-bottom: 0;
         font-size: 1.2rem;
+    }
+
+    .event {
+        color: var(--color-black);
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        border-bottom: solid 2px var(--color-light);
+        padding: 5px var(--margin);
+    }
+
+    .event p {
+        font-family: var(--quote-font);
+        line-height: 1;
+        margin-bottom: 0;
+        margin-left: var(--margin);
+    }
+
+    .calendar {
+        position: relative;
+        text-align: center;
+        height: 52px;
+        aspect-ratio: 1;
+        background-color: var(--color-red);
+        color: var(--color-white);
+        font-size: 0.9rem;
+    }
+
+    b {
+        font-family: var(--quote-font);
+        font-size: 1.6rem;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h2 {
+        color: var(--color-purple);
     }
 </style>

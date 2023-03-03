@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Page.astro";
+import { getAllEvents } from "../lib/api.js";
+import Container from "../components/Container.astro";
+import EventCard from "../components/EventCard.astro";
+
+const seo = {
+    title: "Agenda",
+};
+const allPostDates = await getAllEvents();
+---
+
+<Layout seo={seo}>
+    <Container>
+        <article class="blog-page-content__article">
+            <section class="FrontpagePostlist">
+                {
+                    allPostDates.map((event, idx) => {
+                        return <EventCard idx={idx} event={event} />;
+                    })
+                }
+            </section>
+        </article>
+    </Container>
+</Layout>
+
+<style>
+    .FrontpagePostlist {
+        margin-top: 2rem;
+        display: grid;
+        gap: var(--margin);
+        padding: 0;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+    }
+</style>

@@ -7,9 +7,6 @@ title: À propos
 
 **Trente-neuf degrés est un site participatif et indépendant d’informations locales**, géré par un collectif composé de bénévoles de différentes sensibilités. Trente-neuf Degrés veut offrir à celles et ceux qui le souhaitent un espace d'expression, pour diffuser des informations et valoriser des activités et projets.
 
-<img alt="Trente neuf degrés, le média populaire, social et écologiste du Jura" style="width: 260px; margin: auto" src="\assets\img\trenteneufdegres_logo_basedline.png" />
-
-
 ## La démarche
 
 Trente neuf degrés est né d'un constat. 
@@ -20,12 +17,12 @@ La presse locale jurassienne ne donne pas suffisamment d'espaces pour diffuser d
 
 Trente-neuf degrés se donne comme ambition de répondre à ce besoin, en créant un média participatif et un espace commun pour toutes les sensibilités sociales et écologistes du Jura.
 
-## Notre Site internet 
-
-Le site [trenteneufdegres.fr](https://trenteneufdegres.fr) est un site statique construit sur *les normes d'écoconception* pour un internet propre. 🌱  
-L'objectif à terme est de servir une plateforme *inclusive et accessible à toutes et tous*. 
-
 ## Pourquoi Trente-neuf Degrés ?
 
 L'angle de vue, la fièvre sociale, l'urgence environnementale, le changement de cap... 
 le nom Trente-neuf degrés illustre à la fois notre ligne éditoriale et le département du Jura.
+
+## Notre Site internet 
+
+Le site [trenteneufdegres.fr](https://trenteneufdegres.fr) est un site statique construit sur *les normes d'écoconception* pour un internet propre. 🌱  
+L'objectif à terme est de servir une plateforme *inclusive et accessible à toutes et tous*. 

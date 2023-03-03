@@ -1,0 +1,119 @@
+---
+import {
+    getSanityImageURL,
+    formatEventDate,
+    formatLongEventDate,
+} from "../utils/helpers.js";
+
+export interface Props {
+    event: any;
+    idx: number;
+}
+
+const { event, idx } = Astro.props;
+
+let date = new Date(event.eventDate);
+
+let eventDate = {
+    month: date.toLocaleString("default", {
+        month: "short",
+    }),
+    day: date.toLocaleString("default", {
+        day: "numeric",
+    }),
+    hour: date.toLocaleString("default", {
+        hour: "numeric",
+    }),
+    minute: date.toLocaleString("default", {
+        minute: "numeric",
+    }),
+};
+---
+
+<article class="event shadow">
+    <time class="calendar shadow">
+        {eventDate.month}
+        <b>{eventDate.day}</b>
+    </time>
+    {
+        event.mainImage && (
+            <img
+                class="event__img"
+                loading="lazy"
+                src={
+                    getSanityImageURL(event.mainImage).url().includes("?")
+                        ? getSanityImageURL(event.mainImage).url() + "&w=600"
+                        : getSanityImageURL(event.mainImage).url() + "?w=600"
+                }
+                alt={event.alt}
+            />
+        )
+    }
+    <div class="cardMain">
+        <h2>
+            {event.title} -
+            {
+                event.endDate ? (
+                    <time>
+                        (Du {formatLongEventDate(event.eventDate)} au{" "}
+                        {formatLongEventDate(event.endDate)})
+                    </time>
+                ) : (
+                    <time>({formatEventDate(event.eventDate)})</time>
+                )
+            }
+        </h2>
+        <p>{event.excerpt}</p>
+    </div>
+</article>
+
+<style>
+    .calendar {
+        position: absolute;
+        text-align: center;
+        height: 52px;
+        aspect-ratio: 1;
+        background-color: var(--color-red);
+        color: var(--color-white);
+        font-size: 0.9rem;
+    }
+
+    b {
+        font-family: var(--quote-font);
+        font-size: 1.6rem;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .event {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-white);
+    }
+
+    .event__img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .cardMain {
+        padding: 1rem 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .event__img {
+            width: 33%;
+        }
+
+        .event {
+            flex-direction: row;
+        }
+    }
+</style>

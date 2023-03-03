@@ -37,6 +37,19 @@ export async function getAllFormatsWithPosts() {
   return data;
 }
 
+export async function getNextEvent() {
+  const query = `*[_type == 'agenda'] | order(eventDate asc)[0]{title, eventDate, endDate}`;
+  const data = await useSanityClient().fetch(query);
+  return data;
+}
+
+export async function getAllEvents() {
+  const query = `
+  *[_type == 'agenda'] | order(eventDate asc)`;
+  const data = await useSanityClient().fetch(query);
+  return data;
+}
+
 export async function getAllCategories() {
   const query = `*[_type == 'category']`;
   const data = await useSanityClient().fetch(query);
