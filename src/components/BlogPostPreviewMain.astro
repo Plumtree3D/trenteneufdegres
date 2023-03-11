@@ -43,11 +43,12 @@ const { post, idx } = Astro.props;
         > -{" "}
         {post.title}
       </h2>
-
       <p>{post.excerpt}</p>
-      <time>{formatBlogPostDate(post.publishedAt)}</time>
     </div>
   </a>
+  <footer>
+    <time>{formatBlogPostDate(post.publishedAt)}</time>
+  </footer>
 </article>
 
 <style>
@@ -56,6 +57,12 @@ const { post, idx } = Astro.props;
     width: 100%;
     height: 100%;
     background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    margin-bottom: 0px !important;
   }
 
   .cardMain {
@@ -107,5 +114,10 @@ const { post, idx } = Astro.props;
     border-radius: 0 0 10px 10px;
     font-family: var(--subtitle-font);
     font-size: 1.2rem;
+  }
+
+  footer {
+    padding-left: var(--margin);
+    margin-top: auto;
   }
 </style>

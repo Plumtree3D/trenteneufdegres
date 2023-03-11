@@ -121,7 +121,7 @@ blockquote {
   position: relative;
   font-family: var(--quote-font);
   padding: 26px 0;
-
+  margin-bottom: var(--margin);
 }
 
 blockquote:before {
