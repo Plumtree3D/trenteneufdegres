@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Page.astro";
+import { getAllEvents } from "../lib/api.js";
+import Container from "../components/Container.astro";
+import EventCard from "../components/EventCard.astro";
+import SectionEmpty from "../components/SectionEmpty.astro";
+
+const seo = {
+  title: "Nous contacter",
+};
+const allPostDates = await getAllEvents();
+---
+
+<Layout seo={seo}>
+  <Container>
+    <article class="post-content__article shadow">
+      <h1>Nous contacter</h1>
+      <p>
+        Trente-neuf degrés est un média participatif et la possibilité de
+        publier est ouverte à toutes et tous. Si vous souhaitez soumettre du
+        contenu (article, communiqué, date à l'agenda) vous êtes invités à
+        contacter la rédaction par le biais du formulaire ci-dessous. <br /> Pensez
+        aussi à consulter notre <a href="/charte">charte éditoriale</a>
+      </p>
+      <form name="contact" method="POST" data-netlify="true">
+        <label>
+          J'aimerais: <br />
+          <select name="role[]">
+            <option value="leader"
+              >Proposer un article ou un sujet d'article</option
+            >
+            <option value="follower">Soumettre un évènement à l'Agenda</option>
+            <option value="follower"
+              >Poser une question ou signaler un problème</option
+            >
+          </select></label
+        >
+        <label>Votre prénom: <br /> <input type="text" name="name" /></label>
+        <label
+          >Une adresse mail: <br />
+          <input required type="email" name="email" /></label
+        >
+        <label
+          >Message: <br />
+          <textarea required name="message"></textarea></label
+        >
+
+        <button type="submit" id="input-submit">Envoyer</button>
+        <p>
+          Vos données seront conservées uniquement dans le cadre de nos
+          échanges.
+        </p>
+      </form>
+    </article>
+  </Container>
+</Layout>
+
+<style>
+  article {
+    background-color: white;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input,
+  textarea {
+    border: 0;
+    outline: 0;
+    padding: 0.3em;
+    display: block;
+    width: 100%;
+    background-color: var(--color-light);
+    resize: none;
+  }
+  input:focus,
+  textarea:focus {
+    box-shadow: var(--shadow);
+  }
+
+  #input-submit {
+    margin-top: var(--margin);
+    border: 0;
+    outline: 0;
+    padding: 6px var(--margin);
+    color: white;
+    background: var(--color-purple);
+    cursor: pointer;
+    align-self: end;
+  }
+
+  #input-submit:hover,
+  #input-submit:focus {
+    box-shadow: var(--shadow);
+  }
+
+  textarea {
+    height: 126px;
+  }
+</style>

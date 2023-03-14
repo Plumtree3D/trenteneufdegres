@@ -5,15 +5,16 @@ import Medias from "./Medias.astro";
 <footer class="footer shadow">
     <div class="footerCol">
         <ul>
-            <!-- <li>Proposer du contenu</li>
-            <li>Contact</li> -->
             <li><a href="/legales"> Mentions Légales</a></li>
             <li>
                 <a
                     href="https://github.com/Plumtree3D/trenteneufdegres/tree/main/doc/presskit"
                 >
-                    Kit de presse</a>
+                    Kit de presse</a
+                >
             </li>
+            <li><a href="/charte"> Charte éditoriale</a></li>
+            <li><a href="/legales"> Contact</a></li>
         </ul>
     </div>
     <div class="footerCol">
@@ -66,6 +67,9 @@ import Medias from "./Medias.astro";
     @media only screen and (min-width: 768px) {
         .footer {
             width: calc(100% - 244px);
+        }
+        ul {
+            column-count: 2;
         }
     }
 </style>
