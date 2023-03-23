@@ -4,6 +4,7 @@ import {
     formatEventDate,
     formatLongEventDate,
 } from "../utils/helpers.js";
+import SanityPortableText from "./SanityPortableText.astro";
 
 export interface Props {
     event: any;
@@ -63,7 +64,7 @@ let eventDate = {
                 )
             }
         </h2>
-        <p>{event.excerpt}</p>
+        <SanityPortableText portableText={event.excerpt} />
     </div>
 </article>
 
