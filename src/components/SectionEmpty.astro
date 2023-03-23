@@ -1,4 +1,30 @@
 ---
 ---
 
-<h2>Il n'y a rien ici...</h2>
+<div class="shadow">
+    <h2>Il n'y a rien ici...</h2>
+    <p>
+        Il n'y a pas encore d'article dans cette section... Mais vous pourriez
+        en proposer un!
+    </p>
+
+    <a href="/contact"> Proposer un article</a>
+</div>
+
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: var(--margin);
+    }
+
+    a {
+        box-shadow: var(--shadow);
+        text-decoration: none;
+        align-self: center;
+        color: var(--color-white);
+        padding: var(--margin);
+        background-color: var(--color-purple);
+    }
+</style>
