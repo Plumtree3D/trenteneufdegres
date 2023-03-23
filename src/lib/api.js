@@ -10,7 +10,7 @@ export async function getAllPosts() {
     "locationData": location[]->
       {slug, title}, 
     "authorData": author->
-      {name, image, bio}, ...} 
+      {name, image, bio, twitter, facebook, blog}, ...} 
     | order(publishedAt desc)`;
   const data = await useSanityClient().fetch(query);
   return data;

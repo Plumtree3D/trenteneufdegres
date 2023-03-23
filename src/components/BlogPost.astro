@@ -15,54 +15,96 @@ const { post } = Astro.props;
   <h1>{post.title}</h1>
   <p class="excerpt">{post.excerpt}</p>
   <div class="articleImage">
-  {
-    post.mainImage ? (
-      <img
-        class="post-main__img"
-        alt={post.alt}
-        srcset={
-            `${getSanityImageURL(post.mainImage).url().includes("?")
+    {
+      post.mainImage ? (
+        <img
+          class="post-main__img"
+          alt={post.alt}
+          srcset={`${
+            getSanityImageURL(post.mainImage).url().includes("?")
               ? getSanityImageURL(post.mainImage).url() + "&w=460"
-              : getSanityImageURL(post.mainImage).url() + "?w=460"} 460w,
-            ${getSanityImageURL(post.mainImage).url().includes("?")
-              ? getSanityImageURL(post.mainImage).url() + "&w=980"
-              : getSanityImageURL(post.mainImage).url() + "?w=980"} 980w
-              `
-          }
-        sizes="(max-width: 600px) 460w,
+              : getSanityImageURL(post.mainImage).url() + "?w=460"
+          } 460w,
+            ${
+              getSanityImageURL(post.mainImage).url().includes("?")
+                ? getSanityImageURL(post.mainImage).url() + "&w=980"
+                : getSanityImageURL(post.mainImage).url() + "?w=980"
+            } 980w
+              `}
+          sizes="(max-width: 600px) 460w,
             980w"
-      />
-    ) : <> </>
-  }
-  <p class="altText" aria-hidden="true">{post.alt}</p>
-
+        />
+      ) : (
+        <> </>
+      )
+    }
+    <p class="altText" aria-hidden="true">{post.alt}</p>
   </div>
   <SanityPortableText portableText={post.body} />
   <footer>
     <p style="text-align: end;">
-    <time>Le {formatBlogPostDate(post.publishedAt)}</time> <br/>
-    {
-      formatBlogPostDate(post.publishedAt) != formatBlogPostDate(post._updatedAt) && (
-        <time> (Mis à jour le {formatBlogPostDate(post._updatedAt)})</time>
-      )
-    }
+      <time>Le {formatBlogPostDate(post.publishedAt)}</time>
+      <br />
+      {
+        formatBlogPostDate(post.publishedAt) !=
+          formatBlogPostDate(post._updatedAt) && (
+          <time> (Mis à jour le {formatBlogPostDate(post._updatedAt)})</time>
+        )
+      }
     </p>
-    <div class="authorCard shadow">
-      
-      {post.authorData && 
-        <img
-        class="authorCardImage shadow"
-          width="80"
-          height="80"
-          loading="lazy"
-          src={getSanityImageURL(post.authorData.image).url()}
-        />
-        <h3>{post.authorData.name}</h3>
-        <p class="description">
-          <SanityPortableText portableText={post.authorData.bio} />
-        </p>
+    {console.log(post.authorData)}
+
+    {
+      post.authorData &&
+        (post.authorData.bio ? (
+          <>
+            <div class="authorCard shadow">
+              {post.authorData.image && (
+                <img
+                  class="authorCardImage shadow"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                  alt=""
+                  src={getSanityImageURL(post.authorData.image).url()}
+                />
+              )}
+              <h3>{post.authorData.name}</h3>
+              <p class="description">
+                <SanityPortableText portableText={post.authorData.bio} />
+              </p>
+              <div class="social-links">
+                {post.authorData.twitter && (
+                  <a href={post.authorData.twitter} target="_blank">
+                    <i
+                      title={`Voir ${post.authorData.name} sur Twitter`}
+                      class="fab fa-twitter"
+                    />
+                  </a>
+                )}
+                {post.authorData.facebook && (
+                  <a href={post.authorData.facebook} target="_blank">
+                    <i
+                      title={`Voir ${post.authorData.name} sur Facebook`}
+                      class="fab fa-facebook"
+                    />
+                  </a>
+                )}
+                {post.authorData.blog && (
+                  <a href={post.authorData.blog} target="_blank">
+                    <i
+                      title={`Consulter le site de ${post.authorData.name}`}
+                      class="fa fa-globe"
+                    />
+                  </a>
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          <i>{post.authorData.name}</i>
+        ))
     }
-  </div>
   </footer>
 </Container>
 
@@ -113,20 +155,43 @@ const { post } = Astro.props;
   }
 
   .authorCard h3 {
-    font-family: 'Sriracha', arial, sans-serif;
+    font-family: "Sriracha", arial, sans-serif;
     text-align: center;
     margin-bottom: 20px;
     color: $otherAccent;
   }
 
-  .description{
+  .description {
     margin-bottom: 20px;
   }
 
-  @media only screen and (min-width: 768px) { 
-    .authorCard {
-    margin-left: calc(2*var(--margin));
+  .social-links {
+    text-align: end;
+    font-size: 1.2rem;
   }
 
+  .social-links a {
+    color: var(--color-purple);
+    text-decoration: none;
+    margin-left: 6px;
+  }
+
+  .fa-facebook:hover {
+    transition: 0.2s;
+    color: #3b5998;
+  }
+  .fa-twitter:hover {
+    transition: 0.2s;
+    color: #00acee;
+  }
+  .fa-globe:hover {
+    transition: 0.2s;
+    color: #1b9c71;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .authorCard {
+      margin-left: calc(2 * var(--margin));
+    }
   }
 </style>
