@@ -5,6 +5,7 @@ import {
     formatLongEventDate,
 } from "../utils/helpers.js";
 import SanityPortableText from "./SanityPortableText.astro";
+import Copylink from "./Copylink.astro";
 
 export interface Props {
     event: any;
@@ -31,7 +32,7 @@ let eventDate = {
 };
 ---
 
-<article class="event shadow">
+<article id={event.slug.current} class="event shadow">
     <time class="calendar shadow">
         {eventDate.month}
         <b>{eventDate.day}</b>
@@ -51,20 +52,25 @@ let eventDate = {
         )
     }
     <div class="cardMain">
-        <h2>
-            {event.title} -
-            {
-                event.endDate ? (
-                    <time>
-                        (Du {formatLongEventDate(event.eventDate)} au{" "}
-                        {formatLongEventDate(event.endDate)})
-                    </time>
-                ) : (
-                    <time>({formatEventDate(event.eventDate)})</time>
-                )
-            }
-        </h2>
+        <div>
+            <h2>
+                {event.title} -
+                {
+                    event.endDate ? (
+                        <time>
+                            (Du {formatLongEventDate(event.eventDate)} au{" "}
+                            {formatLongEventDate(event.endDate)})
+                        </time>
+                    ) : (
+                        <time>({formatEventDate(event.eventDate)})</time>
+                    )
+                }
+            </h2>
+            <Copylink slug={event.slug.current} />
+        </div>
+
         <SanityPortableText portableText={event.excerpt} />
+        <a href=""> En savoir plus</a>
     </div>
 </article>
 

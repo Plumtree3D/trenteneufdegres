@@ -1,0 +1,26 @@
+---
+const { slug = "Welcome, world!" } = Astro.props;
+---
+
+<astro-greet data-message={slug}>
+    <button><i title="Flux RSS" class="fas fa-link"></i></button>
+</astro-greet>
+
+<script>
+    class AstroGreet extends HTMLElement {
+        constructor() {
+            super();
+
+            // Lisez le message de l’attribut data.
+            const message = this.dataset.message;
+            const button = this.querySelector("button");
+            button.addEventListener("click", () => {
+                navigator.clipboard.writeText(
+                    `https://trenteneufdegres.fr/agenda#${message}`
+                );
+            });
+        }
+    }
+
+    customElements.define("astro-greet", AstroGreet);
+</script>
