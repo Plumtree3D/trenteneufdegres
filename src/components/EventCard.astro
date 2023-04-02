@@ -40,6 +40,7 @@ let eventDate = {
     {
         event.mainImage && (
             <img
+                aria-hidden="true"
                 class="event__img"
                 loading="lazy"
                 src={
@@ -47,7 +48,7 @@ let eventDate = {
                         ? getSanityImageURL(event.mainImage).url() + "&w=600"
                         : getSanityImageURL(event.mainImage).url() + "?w=600"
                 }
-                alt={event.alt}
+                title={event.alt}
             />
         )
     }

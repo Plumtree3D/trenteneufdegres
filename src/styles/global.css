@@ -111,6 +111,7 @@ p a:hover {
 .altText {
   color: var(--color-gray);
   font-family: var(--quote-font);
+  font-size: 0.8rem;
 }
 
 .ariane, .ariane a {
@@ -247,6 +248,10 @@ time {
 }
 
 @media only screen and (min-width: 768px) {
+
+  .altText {
+    font-size: 1rem;
+  }
   
   .card {
     width: 50%;

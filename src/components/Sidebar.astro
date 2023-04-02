@@ -1,11 +1,10 @@
 ---
 import { getAllCategories, getAllLocations, getAllEvents } from "../lib/api.js";
 import Medias from "./Medias.astro";
-import isAfter from "date-fns/isAfter";
+import isAfter from "date-fns/isAfter/index.js";
 const allCategoriesData = await getAllCategories();
 const allLocationsData = await getAllLocations();
 const allEvents = await getAllEvents();
-console.log(allEvents);
 const nextEvent =
     allEvents.find(
         (date) =>
