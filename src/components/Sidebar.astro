@@ -1,9 +1,20 @@
 ---
-import { getAllCategories, getAllLocations, getNextEvent } from "../lib/api.js";
+import { getAllCategories, getAllLocations, getAllEvents } from "../lib/api.js";
 import Medias from "./Medias.astro";
+import isAfter from "date-fns/isAfter";
 const allCategoriesData = await getAllCategories();
 const allLocationsData = await getAllLocations();
-const nextEvent = await getNextEvent();
+const allEvents = await getAllEvents();
+console.log(allEvents);
+const nextEvent =
+    allEvents.find(
+        (date) =>
+            isAfter(new Date(date.eventDate), new Date()) === true &&
+            date.priority === true
+    ) ||
+    allEvents.find(
+        (date) => isAfter(new Date(date.eventDate), new Date()) === true
+    );
 ---
 
 <nav class="sidenav">
@@ -33,7 +44,7 @@ const nextEvent = await getNextEvent();
                         </div>
                     </li>
                     <li class="row button">
-                        <a href="/agenda">Voir toutes les dates</a>
+                        <a href="/agenda">Toutes les dates</a>
                     </li>
                 </ul>
             </>

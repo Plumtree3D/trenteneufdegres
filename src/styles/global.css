@@ -26,7 +26,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  outline: solid 3px var(--color-purple);
+  outline: solid 1px var(--color-purple);
 }
 
 :root {
@@ -303,6 +303,7 @@ time {
     background-color: var(--color-white);
     overflow-x: hidden;
     box-shadow: var(--shadow);
+    height: calc(calc(100vh - 24px) - var(--header-height));
   }
   .upperBar .button {
     width: auto;

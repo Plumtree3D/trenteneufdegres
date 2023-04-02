@@ -52,9 +52,9 @@ let eventDate = {
         )
     }
     <div class="cardMain">
-        <div>
+        <div class="row">
             <h2>
-                {event.title} -
+                {event.title}
                 {
                     event.endDate ? (
                         <time>
@@ -66,11 +66,22 @@ let eventDate = {
                     )
                 }
             </h2>
-            <Copylink slug={event.slug.current} />
+            <Copylink
+                slug={event.slug.current}
+                text={event.excerpt}
+                title={event.title}
+            />
         </div>
 
         <SanityPortableText portableText={event.excerpt} />
-        <a href=""> En savoir plus</a>
+        {
+            event.external && (
+                <a href={event.external} target="_blank" class="externalLink">
+                    {" "}
+                    En savoir plus
+                </a>
+            )
+        }
     </div>
 </article>
 
@@ -94,6 +105,10 @@ let eventDate = {
         transform: translate(-50%, -50%);
     }
 
+    time {
+        white-space: nowrap;
+    }
+
     .event {
         display: flex;
         flex-direction: column;
@@ -114,18 +129,34 @@ let eventDate = {
         font-size: 1.2rem;
     }
 
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
     a {
-        color: var(--color-purple);
+        color: var(--color-red);
+    }
+
+    .externalLink {
+        box-shadow: var(--shadow);
+        text-decoration: none;
+        align-self: center;
+        color: var(--color-white);
+        padding: var(--margin);
+        background-color: var(--color-purple);
     }
 
     .fa-facebook:hover {
         transition: 0.2s;
         color: #3b5998;
     }
+
     .fa-twitter:hover {
         transition: 0.2s;
         color: #00acee;
     }
+
     .fa-rss-square:hover {
         transition: 0.2s;
         color: #ee802f;
