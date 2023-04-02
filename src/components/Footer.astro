@@ -6,7 +6,7 @@ import Medias from "./Medias.astro";
     <img src="https://trenteneufdeg.goatcounter.com/count?p=/test" />
     <div class="footerCol">
         <ul>
-            <li><a href="/legales"> Mentions Légales</a></li>
+            <li><a href="/contact"> Nous contacter</a></li>
             <li>
                 <a
                     href="https://github.com/Plumtree3D/trenteneufdegres/tree/main/doc/presskit"
@@ -15,10 +15,11 @@ import Medias from "./Medias.astro";
                 >
             </li>
             <li><a href="/charte"> Charte éditoriale</a></li>
-            <li><a href="/legales"> Contact</a></li>
+            <li><a href="/legales"> Mentions Légales</a></li>
         </ul>
     </div>
     <div class="footerCol">
+        <Medias />
         <span>Trente Neuf Degrés © 2023</span>
     </div>
 </footer>
@@ -39,7 +40,7 @@ import Medias from "./Medias.astro";
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        align-items: center;
+        align-items: flex-end;
     }
 
     .logo {

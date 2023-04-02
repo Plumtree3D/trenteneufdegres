@@ -1,0 +1,74 @@
+---
+const { slug, title, text } = Astro.props;
+
+const newText = toPlainText(text);
+
+function toPlainText(blocks = []) {
+    return (
+        blocks
+            // loop through each block
+            .map((block) => {
+                // if it's not a text block with children,
+                // return nothing
+                if (block._type !== "block" || !block.children) {
+                    return "";
+                }
+                // loop through the children spans, and join the
+                // text strings
+                return block.children.map((child) => child.text).join("");
+            })
+            // join the paragraphs leaving split by two linebreaks
+            .join("\n\n")
+    );
+}
+---
+
+<astro-greet data-message={slug} data-title={title} data-text={newText}>
+    <button><i title="Copier cet évènement" class="far fa-copy"></i></button>
+</astro-greet>
+
+<style>
+    button {
+        border: none;
+        background-color: transparent;
+        opacity: 0.6;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: 0.2s;
+    }
+
+    button:hover,
+    button:focus {
+        opacity: 1;
+        background-color: var(--color-light);
+    }
+</style>
+
+<script>
+    class AstroGreet extends HTMLElement {
+        constructor() {
+            super();
+            // Lisez le message de l’attribut data.
+            const url = this.dataset.message;
+            const title = this.dataset.title;
+            const text = this.dataset.text;
+
+            const button = this.querySelector("button");
+            button.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(
+                        `
+                    🔴 **${title}**  
+                    ${text}  
+
+                    https://trenteneufdegres.fr/agenda#${url}`
+                    );
+                } catch (err) {
+                    alert(`${err.name}: ${err.message}`);
+                }
+            });
+        }
+    }
+
+    customElements.define("astro-greet", AstroGreet);
+</script>

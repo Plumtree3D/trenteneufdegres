@@ -26,7 +26,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  outline: solid 3px var(--color-purple);
+  outline: solid 1px var(--color-purple);
 }
 
 :root {
@@ -111,6 +111,7 @@ p a:hover {
 .altText {
   color: var(--color-gray);
   font-family: var(--quote-font);
+  font-size: 0.8rem;
 }
 
 .ariane, .ariane a {
@@ -247,6 +248,10 @@ time {
 }
 
 @media only screen and (min-width: 768px) {
+
+  .altText {
+    font-size: 1rem;
+  }
   
   .card {
     width: 50%;
@@ -303,6 +308,7 @@ time {
     background-color: var(--color-white);
     overflow-x: hidden;
     box-shadow: var(--shadow);
+    height: calc(calc(100vh - 24px) - var(--header-height));
   }
   .upperBar .button {
     width: auto;
