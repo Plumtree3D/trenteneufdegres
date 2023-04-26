@@ -16,10 +16,13 @@ Nos autres services sont hébergés chez [o2switch](https://www.o2switch.fr/du-r
 Ce projet a pour vocation de respecter au maximum les normes d'accessibilités, de transparence et d'écoconception 🌱  
 Ce site est un fork de [ce projet Github](https://github.com/littlesticks/astro-sanity-minimal-starter) par Little Sticks sous licence MIT.  
 **Charte & logo:** Charlotte Guichon  
-**Icones:** Facebook, Twitter, Telegram & RSS feed fournies par [Font Awesome](https://fontawesome.com/)  
+**Icones:** Facebook, Twitter, Telegram & RSS feed fournies par [Font Awesome](https://fontawesome.com/) 
 
 ## Contact 
-Pour rentrer en contact avec la rédaction, vous pouvez envoyer un e-mail à l'adresse trenteneufdegres@gmail.com
+Si vous souhaitez rentrer en contact avec la rédaction de trente neuf degrés, vous pouvez passer par [ce formulaire](/contact).
+
+## Utilisation des données personnelles 
+Les données collectées par les formulaires de [contact](/contact) et d'inscription à la newsletter sont confidentielles et seront conservées et utilisées uniquement dans le cadre des échanges avec trente neuf degrés. Vous avez la possibilité d'y accéder et de demander leur réctification ou leur suppression à tout moment. En aucun cas trente neuf degrés ne vendra ou ne distribuera ces données.
 
 ## La citation ou la reproduction des articles 
 
