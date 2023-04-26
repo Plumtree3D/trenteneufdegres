@@ -81,9 +81,57 @@ const nextEvent =
     <li class="row button">
         <a href="/contact">Nous contacter</a>
     </li>
+    <form name="newsletter" method="POST" data-netlify="true">
+        <label>
+            Recevoir la newsletter: <input
+                type="text"
+                name="name"
+                placeholder="Votre adresse courriel"
+            /></label
+        >
+        <button type="submit" id="input-submit">Envoyer</button>
+    </form>
 </nav>
 
 <style>
+    form {
+        max-width: 600px;
+        margin: var(--margin);
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #input-submit {
+        margin-top: var(--margin);
+        border: 0;
+        outline: 0;
+        padding: 6px var(--margin);
+        color: white;
+        background: var(--color-purple);
+        cursor: pointer;
+        align-self: end;
+    }
+
+    #input-submit:hover,
+    #input-submit:focus {
+        box-shadow: var(--shadow);
+    }
+
+    input,
+    textarea {
+        border: 0;
+        outline: 0;
+        padding: 0.3em;
+        display: block;
+        width: 100%;
+        background-color: var(--color-light);
+        resize: none;
+    }
+    input:focus,
+    textarea:focus {
+        box-shadow: var(--shadow);
+    }
     .sidenav h2 {
         padding: var(--margin);
         padding-bottom: 0;
